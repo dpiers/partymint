@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User profile:</h1>
+<p>
+  <% if @user.photo != nil %>
+  <b><%= image_tag @user.photo.url(:small) %></b>
+  <% else %>
+  <b><%= image_tag("rails.png") %></b>
+  <% end %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Bio:</b>
+  <%= @user.bio %>
+</p>
+
+<% if current_user == @user %>
+<%= link_to 'Edit', edit_user_registration_path %> |
+<% end %>
+<%= link_to 'Back', root_path %>

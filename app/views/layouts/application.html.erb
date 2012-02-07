@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Partymint</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= csrf_meta_tags %>
+  <span>
+  <%- if user_signed_in? %>
+    <%= "Signed in as #{current_user.name}. Not you?" %>
+    <%= link_to 'Sign out', destroy_user_session_path %>
+  <%- else %>
+    <%= link_to 'Sign in', new_user_session_path %>
+  <%- end %>
+</span>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
