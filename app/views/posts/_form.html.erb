@@ -1,0 +1,18 @@
+<%= form_for([@user, @post]) do |f| %>
+  <div class="field">
+    <%= f.label "Title:" %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label "Message:" %><br />
+    <%= f.text_area(:message, :size => "44x12") %>
+  </div>
+  <div class="field">
+    <%= f.label "Upload an image:" %><br />
+    <%= f.file_field :image, :as => :file, :hint => "Upload an image"%><br />
+  <div>
+
+  <div class="actions">
+    <br/><%= f.submit %>
+  </div>
+<% end %>

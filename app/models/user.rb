@@ -15,4 +15,9 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :photo, :bio, :email, :password, :password_confirmation, :remember_me
+
+  # App logic
+  has_many :posts
+  has_many :followers
+  has_many :followings
 end

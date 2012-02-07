@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<% if @post.image.exists? %>
+<p>
+  <%= image_tag(@post.image) %>
+</p>
+<% end %>
+
+<p>
+  <h2><%= @post.title %></h2>
+</p>
+
+<p>
+  <%= @post.message %>
+</p>
+
+<% if current_user == @user %>
+<%= link_to 'Edit', edit_user_post_path(@user, @post) %> | <%= link_to 'Delete', [@user, @post],confirm: 'Are you sure?', method: :delete,  %> | 
+<% end %>
+
+<%= link_to 'Back', user_posts_path(@user) %>
